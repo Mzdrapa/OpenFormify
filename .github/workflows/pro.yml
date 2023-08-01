@@ -6,11 +6,22 @@ on:
       - main
 
 jobs:
-  build:
+  check_branch:
+    timeout-minutes: 1
     runs-on: ubuntu-latest
+    steps:
+      - name: Check branch
+        if: github.base_ref == 'main' && github.head_ref != 'develop'
+        run: |
+          echo "ERROR: You can only merge to main from dev."
+          exit 1
+  quality:
+    timeout-minutes: 5
+    runs-on: ${{matrix.os}}
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        os: [ubuntu-latest, windows-2019]
+        python-version: ["3.8", "3.11"]
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -23,4 +34,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files '*.py') --fail-under=8
+        pylint $(git ls-files src/*.py) --fail-under=8
