@@ -1,9 +1,9 @@
-name: Dev Workflow
+name: Main Workflow
 
 on:
-  push:
+  pull_request:
     branches:
-      - develop
+      - main
 
 jobs:
   build:
