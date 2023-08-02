@@ -34,4 +34,4 @@ jobs:
         pipenv install --dev
     - name: Analysing the code with pylint
       run: |
-        pipenv run pylint $(git ls-files src/*.py) --rcfile .pylintrc --fail-under=8
+        pipenv run pylint $(git ls-files formify/*.py) --rcfile .pylintrc --fail-under=8

@@ -35,4 +35,4 @@ jobs:
         pip install pylint
     - name: Analysing the code with pylint
       run: |
-        pylint $(git ls-files src/*.py) --fail-under=8
+        pylint $(git ls-files formify/*.py) --fail-under=8
