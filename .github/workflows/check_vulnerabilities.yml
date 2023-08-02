@@ -2,7 +2,7 @@ name: Check vulnerabilities
 
 on:
   schedule:
-    - "0 0 * * MON"
+    - cron: '0 0 * * MON'
 
 jobs:
   check:
