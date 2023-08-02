@@ -1,6 +1,9 @@
 name: Check vulnerabilities
 
 on:
+  workflow_dispatch:
+    inputs:
+
   schedule:
     - cron: '0 0 * * MON'
 
