@@ -1,8 +1,6 @@
 """Main file"""
-from PyQt6.QtWidgets import QApplication, QWidget
-
-# Only needed for access to command line arguments
 import sys
+from PyQt6.QtWidgets import QApplication, QWidget
 
 
 def create_window():

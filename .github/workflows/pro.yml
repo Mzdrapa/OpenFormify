@@ -16,6 +16,7 @@ jobs:
           echo "ERROR: You can only merge to main from dev."
           exit 1
   quality:
+    needs: [check_branch]
     timeout-minutes: 5
     runs-on: ${{matrix.os}}
     strategy:
